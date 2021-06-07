@@ -259,18 +259,18 @@ const AddScreen = props => {
                                             <div className="mb-3">
                                                 <label htmlFor="description" className="form-label">Opis</label>
                                                 <textarea name="description" className="form-control" id="description" rows="3" onChange={e => setDescription(e.target.value)} ref={register({
-                                                    maxLength: 512
+                                                    maxLength: 1024
                                                 })}/>
                                             </div>
-                                            {errors.description && errors.description.type === 'maxLength' && <Error message="Maksymalna długość wynosi 512."/>}
+                                            {errors.description && errors.description.type === 'maxLength' && <Error message="Maksymalna długość wynosi 1024."/>}
 
                                             <div className="mb-3">
                                                 <label htmlFor="discountCode" className="form-label">Kod zniżkowy</label>
                                                 <input type="text" name="discountCode" className="form-control" id="discountCode" onChange={e => setDiscountCode(e.target.value)} ref={register({
-                                                    maxLength: 16
+                                                    maxLength: 24
                                                 })}/>
                                             </div>
-                                            {errors.discountCode && errors.discountCode.type === 'maxLength' && <Error message="Maksymalna długość wynosi 16."/>}
+                                            {errors.discountCode && errors.discountCode.type === 'maxLength' && <Error message="Maksymalna długość wynosi 24."/>}
 
                                             <div className="mb-3">
                                                 <label htmlFor="category" className="form-label">Kategoria</label>

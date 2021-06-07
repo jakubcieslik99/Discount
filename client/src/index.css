@@ -250,9 +250,16 @@
   background-color: #bb651a;
 }
 #description {
+  position: relative;
   height: 48px;
   margin-bottom: 13px;
   border-style: none;
+  white-space: pre-wrap;
+}
+#description:after {
+  content: "";
+  position: absolute; top: 0; bottom: 0; left: -15px; right: -15px;
+  box-shadow: inset #3f3f3f 0 -15px 15px;
 }
 #HomeScreen small {
   color: #808080;
@@ -318,6 +325,9 @@
 #DiscountScreen #description {
   height: auto;
   min-height: 73px;
+}
+#DiscountScreen #description:after {
+  box-shadow: none;
 }
 #DiscountScreen small {
   color: #808080;

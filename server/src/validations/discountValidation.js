@@ -32,11 +32,11 @@ const updateValidation = Joi.object({
     description: Joi
         .string()
         .allow('')
-        .max(512),
+        .max(1024),
     discountCode: Joi
         .string()
         .allow('')
-        .max(16),
+        .max(24),
     link: Joi
         .string()
         .required()
@@ -83,11 +83,11 @@ const createValidation = Joi.object({
     description: Joi
         .string()
         .allow('')
-        .max(512),
+        .max(1024),
     discountCode: Joi
         .string()
         .allow('')
-        .max(16),
+        .max(24),
     link: Joi
         .string()
         .required()
