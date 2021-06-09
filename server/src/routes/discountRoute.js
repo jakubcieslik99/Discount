@@ -3,6 +3,7 @@ import createError from 'http-errors'
 import multer from 'multer'
 import {promisify} from 'util'
 import fs from 'fs'
+import del from 'del'
 import Discount from '../models/discountModel'
 import {isValidId} from '../middlewares/paramsMiddleware'
 import {isAuth} from '../middlewares/authMiddleware'
@@ -173,8 +174,9 @@ router.delete('/manage/:id', isValidId('id'), isAuth, async (req, res, next) => 
         if(!deletedDiscount) throw createError(404, 'Podana okazja nie istnieje.')
 
         if(deletedDiscount.addedBy==req.user.id || possibleAdmin) {
-            fs.rmdirSync(`${__dirname}/../../uploads/${deletedDiscount._id}`, {recursive: true})
-
+            //fs.rmdirSync(`${__dirname}/../../uploads/${deletedDiscount._id}`, {recursive: true})
+            await del(`${__dirname}/../../uploads/${deletedDiscount._id}`)
+            
             await deletedDiscount.remove()
     
             return res.status(200).send({message: 'Usunięto okazję.'})
